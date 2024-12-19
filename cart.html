@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Carrinho de Compras</h1>
+        <nav>
+            <button onclick="window.location.href='index.html'">Voltar para a Loja</button>
+        </nav>
+    </header>
+
+    <main>
+        <div id="cart-items">
+            <!-- Itens do carrinho serão exibidos aqui -->
+        </div>
+
+        <div id="total">
+            <h2>Total: R$ <span id="total-price">0,00</span></h2>
+        </div>
+
+        <button onclick="clearCart()">Limpar Carrinho</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loja Brasil</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Carregar o carrinho do localStorage
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsDiv = document.getElementById('cart-items');
+            let totalPrice = 0;
+            cartItemsDiv.innerHTML = '';
+
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `<p>${item.name} - R$ ${item.price}</p>`;
+                cartItemsDiv.appendChild(itemDiv);
+                totalPrice += item.price;
+            });
+
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        }
+
+        // Limpar o carrinho
+        function clearCart() {
+            localStorage.removeItem('cart');
+            loadCart();
+        }
+
+        // Carregar carrinho na página
+        loadCart();
+    </script>
+</body>
+</html>

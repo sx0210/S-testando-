@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Brasil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Loja Brasil!</h1>
+        <nav>
+            <button onclick="window.location.href='cart.html'">Carrinho</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product">
+            <h2>Produto 1</h2>
+            <img src="https://via.placeholder.com/200" alt="Produto 1">
+            <p>Preço: R$ 100,00</p>
+            <button onclick="addToCart('Produto 1', 100)">Adicionar ao Carrinho</button>
+        </section>
+        <section class="product">
+            <h2>Produto 2</h2>
+            <img src="https://via.placeholder.com/200" alt="Produto 2">
+            <p>Preço: R$ 150,00</p>
+            <button onclick="addToCart('Produto 2', 150)">Adicionar ao Carrinho</button>
+        </section>
+        <section class="product">
+            <h2>Produto 3</h2>
+            <img src="https://via.placeholder.com/200" alt="Produto 3">
+            <p>Preço: R$ 200,00</p>
+            <button onclick="addToCart('Produto 3', 200)">Adicionar ao Carrinho</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loja Brasil</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
